@@ -7,6 +7,8 @@ balance = 10000
 gold = 1000
 possession = 0
 def run():
+    global goldowned
+    global balance
     while True:
         command = input("Type a command: ")
         if command == "!help":
@@ -22,6 +24,8 @@ def run():
             print("INVEST:")
             print("Gold - 1")
             print("")
+            time.sleep(0.2)
+            print("Please enter the number which corresponds to what you would like to buy:")
             request = input("")
             if request == "1":
                 print("1 unit of solid Gold is worth $%d." % gold)
@@ -42,6 +46,8 @@ def run():
                 goldowned += buy
                 balance -= cost
                 print("You now own a total of %d units of Gold." % goldowned)
+                time.sleep(0.2)
+                print("You now have $%d." % balance)
             else:
                 continue
 
