@@ -1,0 +1,80 @@
+import sys
+import time
+import random
+
+goldowned = 0
+balance = 10000
+gold = 1000
+possession = 0
+def run():
+    while True:
+        command = input("Type a command: ")
+        if command == "!help":
+            print("")
+            print("Commands:")
+            print("!help - see commands.")
+            print("!invest - Invest money into a currency.")
+            print("!owned - see how much you own.")
+            print("!balance - see how much money you have.")
+            print("")
+            
+        elif command == "!invest":
+            print("INVEST:")
+            print("Gold - 1")
+            print("")
+            request = input("")
+            if request == "1":
+                print("1 unit of solid Gold is worth $%d." % gold)
+                time.sleep(0.5)
+                print("How many units would you like to buy?")
+                try:
+                    buy = int(input(""))
+                except ValueError:
+                    print("You can't buy a fraction of a unit.")
+                    run()
+                cost = buy * gold
+                if cost > balance:
+                    print("You do not have enough money to make this purchase!")
+                print("You have spent $%d..." % cost)
+                time.sleep(0.2)
+                print("Buying %d units..." % buy)
+                time.sleep(1)
+                goldowned += buy
+                balance -= cost
+                print("You now own a total of %d units of Gold." % goldowned)
+            else:
+                continue
+
+        elif command == "!owned":
+            print("YOUR POSSESSIONS:")
+            print("Gold = %d units." % goldowned)
+            print("")
+
+        elif command == "!balance":
+            print("BANK ACCOUNT:")
+            print("You have $%d." % balance)
+
+                
+
+        
+        else:
+            print("Incorrect command!")
+
+        if balance == 0 or balance < 0:
+            print("You have run out of money.")
+            time.sleep(0.2)
+            if possession == 0:
+                print("Game over.")
+                time.sleep(5)
+                Return
+            else:
+                continue
+            #TO DO ^
+            
+
+print("Welcome to Crypto!")
+time.sleep(0.5)
+print("Your goal is to make as much money as possible.")
+time.sleep(1)
+print("Type !help to see commands.")
+run()
