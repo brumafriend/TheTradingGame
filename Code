@@ -7,6 +7,8 @@ balance = 10000
 gold = 1000
 possession = 0
 def run():
+    global gold
+    global possession
     global goldowned
     global balance
     while True:
@@ -16,8 +18,11 @@ def run():
             print("Commands:")
             print("!help - see commands.")
             print("!invest - Invest money into a currency.")
+            print("!value - see the current value of all units.")
             print("!owned - see how much you own.")
             print("!balance - see how much money you have.")
+            print("!progress - finalise your investments and hope for the best.")
+            print("!sell - sell a number of units for money.")
             print("")
             
         elif command == "!invest":
@@ -49,6 +54,7 @@ def run():
                 time.sleep(0.2)
                 print("You now have $%d." % balance)
             else:
+                print("No number matches your request!")
                 continue
 
         elif command == "!owned":
@@ -60,7 +66,39 @@ def run():
             print("BANK ACCOUNT:")
             print("You have $%d." % balance)
 
-                
+        elif command == "!progress":
+            print("Are you sure you would like to go forward? You will not be able to go back.")
+            time.sleep(0.2)
+            print("(If you progress, a week will pass and the values of units will change)")
+            time.sleep(0.1)
+            print("1=yes/2=no")
+            progress = input("")
+            if progress == "1":
+                print("Finalising investments...")
+                time.sleep(0.3)
+                print("A week is passing...")
+                time.sleep(0.5)
+                if random.randint(0,100) < (50):
+                    gold += (random.randint(0,25))
+                    print("Gold is now worth %d." % gold)
+            else:
+                continue
+            
+        elif command == "!value":
+            print("VALUES:")
+            print("Gold = $%d/unit" % gold)
+            print("")
+
+        elif command == "!sell":
+            print("SELL:")
+            print("Sell Gold - 1")
+            print("")
+            print("Please enter the number which corresponds to what you would like to sell.")
+            sell = input("")
+            if sell == "1":
+                print("")
+            else:
+                print("No number matches your input!")
 
         
         else:
