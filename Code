@@ -13,6 +13,8 @@ def run():
     global possession
     global goldowned
     global balance
+    global bitcoin
+    global bitcoinowned
     while True:
         command = input("Type a command: ")
         if command == "!help":
@@ -61,16 +63,17 @@ def run():
                 print("1 Bitcoin is worth $%d." % bitcoin)
                 time.sleep(0.5)
                 print("How much would you like to invest in Bitcoin?")
-                amount = input("")
-                bitcoins = amount/bitcoin
-                print("%d is worth %d Bitcoins" % amount, bitcoins)
+                amount = int(input("$"))
+                multiple = (1/bitcoin)
+                bitcoins = amount * multiple
+                print("That is worth: "+str(bitcoins)+" Bitcoins")
                 if amount > balance:
                     print("You do not have enough money to make this purchase!")
                 print("You have spent $%d..." % amount)
                 time.sleep(1)
                 bitcoinowned += bitcoins
                 balance -= amount
-                print("You now own a total of %d Bitcoins" % bitcoinowned)
+                print("You now own a total of "+str(bitcoinowned)+" Bitcoins")
                 time.sleep(0.2)
                 print("You now have $%d." % balance)
             else:
@@ -80,6 +83,7 @@ def run():
         elif command == "!owned":
             print("YOUR POSSESSIONS:")
             print("Gold = %d units." % goldowned)
+            print("Cryptocurrency = "+str(bitcoinowned)+" Bitcoins")
             print("")
 
         elif command == "!balance":
