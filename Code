@@ -6,6 +6,7 @@ goldowned = 0
 balance = 10000
 gold = 1000
 bitcoin = 10000
+bitcoinowned = 0
 possession = 0
 def run():
     global gold
