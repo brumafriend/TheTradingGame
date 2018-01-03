@@ -5,6 +5,7 @@ import random
 goldowned = 0
 balance = 10000
 gold = 1000
+bitcoin = 10000
 possession = 0
 def run():
     global gold
@@ -28,6 +29,7 @@ def run():
         elif command == "!invest":
             print("INVEST:")
             print("Gold - 1")
+            print("Cryptocurrency - 2")
             print("")
             time.sleep(0.2)
             print("Please enter the number which corresponds to what you would like to buy:")
@@ -51,6 +53,23 @@ def run():
                 goldowned += buy
                 balance -= cost
                 print("You now own a total of %d units of Gold." % goldowned)
+                time.sleep(0.2)
+                print("You now have $%d." % balance)
+            elif request == "2":
+                print("The current cryptocurrency you can invest in is Bitcoin")
+                print("1 Bitcoin is worth $%d." % bitcoin)
+                time.sleep(0.5)
+                print("How much would you like to invest in Bitcoin?")
+                amount = input("")
+                bitcoins = amount/bitcoin
+                print("%d is worth %d Bitcoins" % amount, bitcoins)
+                if amount > balance:
+                    print("You do not have enough money to make this purchase!")
+                print("You have spent $%d..." % amount)
+                time.sleep(1)
+                bitcoinowned += bitcoins
+                balance -= amount
+                print("You now own a total of %d Bitcoins" % bitcoinowned)
                 time.sleep(0.2)
                 print("You now have $%d." % balance)
             else:
@@ -96,7 +115,8 @@ def run():
             print("Please enter the number which corresponds to what you would like to sell.")
             sell = input("")
             if sell == "1":
-                print("")
+                print("You have chosen to sell your gold")
+                print("You currently have: %d units of gold" % goldowned)
             else:
                 print("No number matches your input!")
 
