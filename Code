@@ -93,7 +93,7 @@ def run():
         elif command == "!progress":
             print("Are you sure you would like to go forward? You will not be able to go back.")
             time.sleep(0.2)
-            print("(If you progress, a week will pass and the values of units will change)")
+            print("(If you progress, a week will pass and the values of units may change)")
             time.sleep(0.1)
             print("1=yes/2=no")
             progress = input("")
@@ -104,15 +104,16 @@ def run():
                 time.sleep(0.5)
                 if random.randint(0,100) < (50):
                     gold += (random.randint(0,25))
-                    print("Gold is now worth %d." % gold)
+                    print("Gold is now worth $%d." % gold)
                     bitcoin += (random.randint(-250,250))
-                    print("Bitcoin is now worth "+str(bitcoin)+".")
+                    print("Bitcoin is now worth $"+str(bitcoin)+".")
             else:
                 continue
             
         elif command == "!value":
             print("VALUES:")
             print("Gold = $%d/unit" % gold)
+            print("Bitcoin = $"+str(bitcoin)+"/coin")
             print("")
 
         elif command == "!sell":
