@@ -63,7 +63,11 @@ def run():
                 print("1 Bitcoin is worth $%d." % bitcoin)
                 time.sleep(0.5)
                 print("How much would you like to invest in Bitcoin?")
-                amount = int(input("$"))
+                try:
+                    amount = int(input("$"))
+                except ValueError:
+                    print("Please enter a number.")
+                    run()
                 multiple = (1/bitcoin)
                 bitcoins = amount * multiple
                 print("That is worth: "+str(bitcoins)+" Bitcoins")
