@@ -32,7 +32,7 @@ def run():
         elif command == "!invest":
             print("INVEST:")
             print("Gold - 1")
-            print("Cryptocurrency - 2")
+            print("Bitcoin - 2")
             print("")
             time.sleep(0.2)
             print("Please enter the number which corresponds to what you would like to buy:")
@@ -49,15 +49,16 @@ def run():
                 cost = buy * gold
                 if cost > balance:
                     print("You do not have enough money to make this purchase!")
-                print("You have spent $%d..." % cost)
-                time.sleep(0.2)
-                print("Buying %d units..." % buy)
-                time.sleep(1)
-                goldowned += buy
-                balance -= cost
-                print("You now own a total of %d units of Gold." % goldowned)
-                time.sleep(0.2)
-                print("You now have $%d." % balance)
+                else:
+                    print("You have spent $%d..." % cost)
+                    time.sleep(0.2)
+                    print("Buying %d units..." % buy)
+                    time.sleep(1)
+                    goldowned += buy
+                    balance -= cost
+                    print("You now own a total of %d units of Gold." % goldowned)
+                    time.sleep(0.2)
+                    print("You now have $%d." % balance)
             elif request == "2":
                 print("The current cryptocurrency you can invest in is Bitcoin")
                 print("1 Bitcoin is worth $%d." % bitcoin)
@@ -70,16 +71,18 @@ def run():
                     run()
                 multiple = (1/bitcoin)
                 bitcoins = amount * multiple
-                print("That is worth: "+str(bitcoins)+" Bitcoins")
                 if amount > balance:
                     print("You do not have enough money to make this purchase!")
-                print("You have spent $%d..." % amount)
-                time.sleep(1)
-                bitcoinowned += bitcoins
-                balance -= amount
-                print("You now own a total of "+str(bitcoinowned)+" Bitcoins")
-                time.sleep(0.2)
-                print("You now have $%d." % balance)
+                else:
+                    print("That is worth: "+str(bitcoins)+" Bitcoins")
+                    time.sleep(0.5)
+                    print("You have spent $%d..." % amount)
+                    time.sleep(1)
+                    bitcoinowned += bitcoins
+                    balance -= amount
+                    print("You now own a total of "+str(bitcoinowned)+" Bitcoins")
+                    time.sleep(0.2)
+                    print("You now have $%d." % balance)
             else:
                 print("No number matches your request!")
                 continue
@@ -106,7 +109,7 @@ def run():
                 time.sleep(0.3)
                 print("A week is passing...")
                 time.sleep(0.5)
-                if random.randint(0,100) < (50):
+                if random.randint(0,100) < (1000):
                     gold += (random.randint(-250,250))
                     print("Gold is now worth $%d." % gold)
                     bitcoin += (random.randint(-250,250))
@@ -120,6 +123,7 @@ def run():
             print("Bitcoin = $"+str(bitcoin)+"/coin")
             print("")
 
+        #IN PROGRESS \/
         elif command == "!sell":
             print("SELL:")
             print("Sell Gold - 1")
