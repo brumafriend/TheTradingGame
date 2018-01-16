@@ -27,7 +27,7 @@ def run():
             print("!balance - see how much money you have.")
             print("!progress - finalise your investments and hope for the best.")
             print("!sell - sell a number of units for money.")
-            print('!save - save the game progress')
+            print('!save - save game progress.')
             print("")
 
         elif command == '!save':
