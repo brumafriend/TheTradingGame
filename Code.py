@@ -27,7 +27,24 @@ def run():
             print("!balance - see how much money you have.")
             print("!progress - finalise your investments and hope for the best.")
             print("!sell - sell a number of units for money.")
+            print('!save - save the game progress')
             print("")
+
+        elif command == '!save':
+            with open('savefile.txt','w') as f:
+                f.write('Gold: '+str(goldowned)+' ')
+                f.write('Bitcoin: '+str(bitcoinowned))
+                f.close()
+                print('Game Saved')
+                leave = input('Would you like to quit? (1 for yes, 2 for no)')
+                if leave == '1':
+                    print('Quitting game...')
+                    time.sleep(3)
+                    quit()
+                elif leave == '2':
+                    print('Continuing game...')
+                    time.sleep(2)
+                    run()
             
         elif command == "!invest":
             print("INVEST:")
