@@ -20,32 +20,26 @@ class App(QWidget):
         self.setGeometry(self.left, self.top, self.width, self.height)
         
         button = QPushButton(QIcon('invest.png'),'Invest', self)
-        button.setToolTip('This is an example button')
         button.move(100,70) 
         button.clicked.connect(self.on_click)
 
         savebut = QPushButton(QIcon('save.png'),'Save', self)
-        savebut.setToolTip('This is an example button')
         savebut.move(400,70) 
         savebut.clicked.connect(self.on_click)
 
         progressbut = QPushButton(QIcon('progress.png'),'Progress', self)
-        progressbut.setToolTip('This is an example button')
         progressbut.move(700,70) 
         progressbut.clicked.connect(self.on_click)
 
         assetsbut = QPushButton(QIcon('assets.png'),'My Assets', self)
-        assetsbut.setToolTip('This is an example button')
         assetsbut.move(90,370) 
         assetsbut.clicked.connect(self.on_click)
 
         but = QPushButton(QIcon('progress.png'),'Progress', self)
-        but.setToolTip('This is an example button')
         but.move(390,370) 
         but.clicked.connect(self.on_click)
 
         but = QPushButton(QIcon('progress.png'),'Progress', self)
-        but.setToolTip('This is an example button')
         but.move(690,370) 
         but.clicked.connect(self.on_click)
 
