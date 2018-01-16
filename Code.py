@@ -127,12 +127,35 @@ def run():
         elif command == "!sell":
             print("SELL:")
             print("Sell Gold - 1")
+            print("Sell Bitcoin - 2")
             print("")
             print("Please enter the number which corresponds to what you would like to sell.")
             sell = input("")
             if sell == "1":
-                print("You have chosen to sell your gold")
+                print("You have chosen to sell your gold.")
                 print("You currently have: %d units of gold" % goldowned)
+                time.sleep(1)
+                print("How many units of gold would you like to sell?")
+                goldchosen = int(input(""))
+                if goldchosen > goldowned:
+                    print("You can't sell more gold than you have.")
+                elif goldchosen < 0:
+                    print("You can't sell negative units.")
+                else:
+                    time.sleep(0.1)
+                    gmoney = goldchosen * gold
+                    print("You have sold gold for $%d." % gmoney)
+                    balance = balance + gmoney
+                    print("You now have $%d." % balance)
+            elif sell == "2":
+                #IN PROGRESS
+                print("You have chosen to sell your bitcoin.")
+                print("You currently have: %d bitcoins" % bitcoinowned)
+                time.sleep(1)
+                bmoney = bitcoin * bitcoinowned
+                print("You have sold your bitcoins for $%d." % bmoney)
+                balance = balance + bmoney
+                print("You now have $%d." % balance)
             else:
                 print("No number matches your input!")
 
@@ -140,7 +163,7 @@ def run():
         else:
             print("Incorrect command!")
 
-        if balance == 0 or balance < 0:
+        if balance < 0:
             print("You have run out of money.")
             time.sleep(0.2)
             if possession == 0:
