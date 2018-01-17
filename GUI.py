@@ -1,4 +1,5 @@
 import sys
+import tkinter
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
 from PyQt5.QtCore import pyqtSlot
@@ -20,34 +21,38 @@ class App(QWidget):
         
         button = QPushButton(QIcon('invest.png'),'Invest', self)
         button.move(100,70) 
-        button.clicked.connect(self.on_click)
+        button.clicked.connect(self.investwin)
 
         savebut = QPushButton(QIcon('save.png'),'Save', self)
         savebut.move(400,70) 
-        savebut.clicked.connect(self.on_click)
+        savebut.clicked.connect(self.investwin)
 
         progressbut = QPushButton(QIcon('progress.png'),'Progress', self)
         progressbut.move(700,70) 
-        progressbut.clicked.connect(self.on_click)
+        progressbut.clicked.connect(self.investwin)
 
         assetsbut = QPushButton(QIcon('assets.png'),'My Assets', self)
         assetsbut.move(90,370) 
-        assetsbut.clicked.connect(self.on_click)
+        assetsbut.clicked.connect(self.investwin)
 
         but = QPushButton(QIcon('progress.png'),'Progress', self)
         but.move(390,370) 
-        but.clicked.connect(self.on_click)
+        but.clicked.connect(self.investwin)
 
         but = QPushButton(QIcon('progress.png'),'Progress', self)
         but.move(690,370) 
-        but.clicked.connect(self.on_click)
+        but.clicked.connect(self.investwin)
 
         self.show()
     @pyqtSlot()       
-    def on_click(self):
-        print('Investing')
+    def investwin(self):
+        root = Tk()
+        root.geometry('900x600')
+        root.title('Invest')
  
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = App()
     sys.exit(app.exec_())
+ 
+ 
