@@ -166,10 +166,14 @@ def run():
                     print("You now have $%d." % balance)
             elif sell == "2":
                 #IN PROGRESS
-                print("You have chosen to sell your bitcoin.")
+                print("You have chosen to sell bitcoin.")
                 print("You currently have: %d bitcoins" % bitcoinowned)
+                time.sleep(0.1)
+                print("How much money would you like to gain from selling bitcoin?")
+                brequest = int(input("$"))
                 time.sleep(1)
-                bmoney = bitcoin * bitcoinowned
+                bmoney = brequest
+                bitcoinowned = bitcoinowned - (brequest/bitcoin)
                 print("You have sold your bitcoins for $%d." % bmoney)
                 balance = balance + bmoney
                 print("You now have $%d." % balance)
